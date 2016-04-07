@@ -4,3 +4,5 @@ node_modules/
 **/www/plugins/
 **/www/hooks/
 .idea/
+results.txt
+coverage.html

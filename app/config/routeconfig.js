@@ -1,7 +1,7 @@
 var settingsConfig = require('./settings/settingsconfig'),
-    Promise = require('promise');
-
-var API_VERSION = 'v1';
+    Promise = require('promise'),
+    db = require('./dbconfig'),
+    API_VERSION = 'v1';
 
 function RouteConfig() {
 }

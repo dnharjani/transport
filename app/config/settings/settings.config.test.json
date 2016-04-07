@@ -1,0 +1,7 @@
+{
+  "settings": [
+    { "name": "queueLength", "value": 10 },
+    { "name" : "dbUsername", "value": "" },
+    { "name" : "dbPassword", "value": "" }
+  ]
+}

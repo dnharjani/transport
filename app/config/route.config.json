@@ -1,0 +1,84 @@
+{
+  "routes": [
+    {
+      "route": "/stations",
+      "method": "GET",
+      "secure": false,
+      "permissions": [
+        {
+        }
+      ],
+      "controller": "../controllers/stationsController"
+    },
+    {
+      "route": "/stations/:stationId",
+      "method": "GET",
+      "secure": false,
+      "permissions": [
+        {
+        }
+      ],
+      "controller": "../controllers/stationController"
+    },
+    {
+      "route": "/lines",
+      "method": "GET",
+      "secure": false,
+      "permissions": [
+        {
+        }
+      ],
+      "controller": "../controllers/linesController"
+    },
+    {
+      "route": "/lines/:lineId",
+      "method": "GET",
+      "secure": false,
+      "permissions": [
+        {
+        }
+      ],
+      "controller": "../controllers/lineController"
+    },
+    {
+      "route": "/disruptions",
+      "method": "GET",
+      "secure": false,
+      "permissions": [
+        {
+        }
+      ],
+      "controller": "../controllers/disruptionsController"
+    },
+    {
+      "route": "/disruptions",
+      "method": "POST",
+      "secure": true,
+      "permissions": [
+        {
+        }
+      ],
+      "controller": "../controllers/disruptionsController"
+    },
+    {
+      "route": "/disruptions",
+      "method": "DELETE",
+      "secure": true,
+      "permissions": [
+        {
+        }
+      ],
+      "controller": "../controllers/disruptionsController"
+    },
+    {
+      "route": "/health",
+      "method": "GET",
+      "secure": false,
+      "permissions": [
+        {
+        }
+      ],
+      "controller": "../controllers/healthController"
+    }
+  ]
+}

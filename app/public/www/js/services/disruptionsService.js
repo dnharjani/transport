@@ -1,8 +1,17 @@
 angular.module('transport')
-  .service('DisruptionsService', function () {
+  .service('DisruptionsService', function (LinesService) {
     var disruptions = {};
 
     return {
-      disruptions: disruptions
+      setDisruptions: setDisruptions,
+      getDisruptions: getDisruptions
     };
+
+    function setDisruptions(d) {
+      disruptions = d;
+    }
+
+    function getDisruptions() {
+      return disruptions;
+    }
   });

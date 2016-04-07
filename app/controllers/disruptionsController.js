@@ -10,14 +10,14 @@ function get(req, res, next) {
     var tomorrow = new Date();
     tomorrow.setDate(today.getDate()+1);
 
-    res.json({
+    res.json([{
         disruptionId: 1,
         lineId: 1,
         fromStationId: 1,
         toStationId: 3,
         fromDate: today,
         toDate: tomorrow
-    })
+    }])
 }
 
 function post(req, res, next) {
@@ -28,9 +28,14 @@ function del(req, res, next) {
 
 }
 
+function put(req, res, next) {
+
+}
+
 DisruptionsController.prototype = {
     get: get,
     post: post,
+    put: put,
     delete: del
 };
 

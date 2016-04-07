@@ -61,8 +61,18 @@
       "controller": "../controllers/disruptionsController"
     },
     {
-      "route": "/disruptions",
+      "route": "/disruptions/:disruptionId",
       "method": "DELETE",
+      "secure": true,
+      "permissions": [
+        {
+        }
+      ],
+      "controller": "../controllers/disruptionsController"
+    },
+    {
+      "route": "/disruptions/:disruptionId",
+      "method": "PUT",
       "secure": true,
       "permissions": [
         {

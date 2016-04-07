@@ -1,4 +1,4 @@
 angular.module('transport')
-  .controller('AppController', function($scope) {
+  .controller('AppController', function($scope, ApiService) {
 
   });

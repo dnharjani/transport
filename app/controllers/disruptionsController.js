@@ -6,7 +6,18 @@ function DisruptionsController() {
 }
 
 function get(req, res, next) {
+    var today = new Date();
+    var tomorrow = new Date();
+    tomorrow.setDate(today.getDate()+1);
 
+    res.json({
+        disruptionId: 1,
+        lineId: 1,
+        fromStationId: 1,
+        toStationId: 3,
+        fromDate: today,
+        toDate: tomorrow
+    })
 }
 
 function post(req, res, next) {

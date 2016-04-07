@@ -17,40 +17,4 @@ angular.module('transport',
         StatusBar.styleDefault();
       }
     });
-  })
-
-  .config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('internal', {
-        url: '/internal',
-        abstract: true,
-        templateUrl: 'templates/internal/internal.html',
-        controller: 'AppController'
-      })
-      .state('internal.disruptions', {
-        url: '/disruptions',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/internal/disruptions.html',
-            controller: 'DisruptionsController'
-          }
-        }
-      })
-      .state('external', {
-        url: '/external',
-        abstract: true,
-        templateUrl: 'templates/external/external.html',
-        controller: 'AppController'
-      })
-      .state('external.disruptions', {
-        url: '/disruptions',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/external/disruptions.html',
-            controller: 'DisruptionsController'
-          }
-        }
-      });
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/internal/disruptions');
   });

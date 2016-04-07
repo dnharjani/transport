@@ -6,7 +6,24 @@ function LinesController() {
 }
 
 function get(req, res, next) {
-
+    res.json({
+        lineId: 1,
+        name: "Line 1",
+        stations: [
+            {
+                stationId: 1,
+                name: "Station 1"
+            },
+            {
+                stationId: 2,
+                name: "Station 2"
+            },
+            {
+                stationId: 3,
+                name: "Station3"
+            }
+        ]
+    })
 }
 
 

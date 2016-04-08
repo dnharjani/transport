@@ -16,7 +16,7 @@ describe('ApplicationConfigService Unit Tests', function(){
     expect(ApplicationConfigService).toBeDefined();
   }));
 
-  it('can should have a api url set', inject(function(ApplicationConfigService) {
+  it('should have a api url set', inject(function(ApplicationConfigService) {
     expect(ApplicationConfigService.get('apiURL')).toBeDefined();
   }));
 

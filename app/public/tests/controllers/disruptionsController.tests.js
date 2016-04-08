@@ -1,62 +1,63 @@
-angular.module('mocks', [])
-  .factory('DisruptionsServiceMock', function($q) {
-    return {
-      getDisruptions: function(){
-        return [
-          {
-            id: 1,
-            lineId: 1,
-            fromStationId: 1,
-            toStationId: 2,
-            fromDate: 'today',
-            toDate: 'tomorrow',
-            reason: 'none'
-          }
-        ]
-      }
-    }
-  })
-  .factory('LinesServiceMock', function($q) {
-    return {
-      getLineById: function(id){
-        return {
-          id: 1,
-          name: 'L1',
-          stations: [
+describe('Disruptions Controller', function() {
+  angular.module('disruptionsController.mocks', [])
+    .factory('DisruptionsServiceMock', function() {
+      return {
+        getDisruptions: function(){
+          return [
             {
               id: 1,
-              name: 'S1'
-            },
-            {
-              id: 2,
-              name: 'S2'
+              lineId: 1,
+              fromStationId: 1,
+              toStationId: 2,
+              fromDate: 'today',
+              toDate: 'tomorrow',
+              reason: 'none'
             }
           ]
         }
-      },
-      getStationInLineById: function(lId, sId) {
-        if(sId === 1) {
+      }
+    })
+    .factory('LinesServiceMock', function() {
+      return {
+        getLineById: function(id){
           return {
             id: 1,
-            name: 'S1'
+            name: 'L1',
+            stations: [
+              {
+                id: 1,
+                name: 'S1'
+              },
+              {
+                id: 2,
+                name: 'S2'
+              }
+            ]
           }
-        }
-        if(sId === 2) {
-          return {
-            id: 2,
-            name: 'S2'
+        },
+        getStationInLineById: function(lId, sId) {
+          if(sId === 1) {
+            return {
+              id: 1,
+              name: 'S1'
+            }
+          }
+          if(sId === 2) {
+            return {
+              id: 2,
+              name: 'S2'
+            }
           }
         }
       }
-    }
-  });
+    });
 
-describe('Disruptions Controller', function() {
+
   var ctrl, scope;
 
   beforeEach(module('transport'));
-  beforeEach(module('mocks'));
-  //
+  beforeEach(module('disruptionsController.mocks'));
+
   beforeEach(inject(function(_$controller_, _$rootScope_, _LinesServiceMock_, _DisruptionsServiceMock_) {
     scope = _$rootScope_.$new();
 

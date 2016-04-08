@@ -21,34 +21,34 @@
       "controller": "../controllers/disruptionsController"
     },
     {
-      "route": "/disruptions",
+      "route": "/disruption/:disruptionId",
+      "method": "GET",
+      "secure": false,
+      "permissions": [
+        {
+        }
+      ],
+      "controller": "../controllers/disruptionController"
+    },
+    {
+      "route": "/disruption",
       "method": "POST",
       "secure": true,
       "permissions": [
         {
         }
       ],
-      "controller": "../controllers/disruptionsController"
+      "controller": "../controllers/disruptionController"
     },
     {
-      "route": "/disruptions/:disruptionId",
+      "route": "/disruption/:disruptionId",
       "method": "DELETE",
       "secure": true,
       "permissions": [
         {
         }
       ],
-      "controller": "../controllers/disruptionsController"
-    },
-    {
-      "route": "/disruptions/:disruptionId",
-      "method": "PUT",
-      "secure": true,
-      "permissions": [
-        {
-        }
-      ],
-      "controller": "../controllers/disruptionsController"
+      "controller": "../controllers/disruptionController"
     },
     {
       "route": "/health",

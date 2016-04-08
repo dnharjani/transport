@@ -26,38 +26,10 @@ angular.module('transport').config(function($stateProvider, $urlRouterProvider) 
     }
   };
 
-  var externalRoot = {
-    url: '/external',
-    abstract: true,
-    templateUrl: 'templates/external/external.html',
-    controller: 'AppController',
-    resolve: {
-      lines: ['ApiService', 'LinesService', function (ApiService, LinesService) {
-        return ApiService.getLines().then(function(lines) { LinesService.setLines(lines); return true; });
-      }]
-    }
-  };
-
-  var externalDisruptions = {
-    url: '/disruptions',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/external/disruptions.html',
-        controller: 'DisruptionsController'
-      }
-    },
-    resolve: {
-      disruptions: ['ApiService', 'DisruptionsService', function (ApiService, DisruptionsService) {
-        return ApiService.getDisruptions().then(function(disruptions) { DisruptionsService.setDisruptions(disruptions); return true; });
-      }]
-    }
-  };
 
   $stateProvider
     .state('internal', internalRoot)
-    .state('internal.disruptions', internalDisruptions)
-    .state('external', externalRoot)
-    .state('external.disruptions', externalDisruptions);
+    .state('internal.disruptions', internalDisruptions);
 
   $urlRouterProvider.otherwise('/internal/disruptions');
 });

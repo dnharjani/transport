@@ -7,7 +7,6 @@ describe('Station Model Service tests', function () {
         findAll: sinon.stub()
     };
 
-
     StationModelStub.findAll.returns(new Promise.resolve([{id: 1, name: 'S1'}]));
 
     var StationModelService = require('../../../app/modelServices/stationModelService');

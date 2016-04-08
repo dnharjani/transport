@@ -7,6 +7,10 @@ function DisruptionModelService() {
     this.model = DatabaseService.models.disruption;
 }
 
+DisruptionModelService.prototype.getDisruptions = function(){
+    return this.model.findAll({raw: true});
+};
+
 DisruptionModelService.prototype.getDisruptionById = function(disruptionId){
     return this.model.findOne({
         where: {

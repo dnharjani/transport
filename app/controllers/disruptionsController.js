@@ -8,31 +8,17 @@ function DisruptionsController() {
 }
 
 function get(req, res, next) {
-    DisruptionService.getDisruptionById(1).then(function(model){
-        res.json(model);
+    DisruptionService.getDisruptions().then(function(disruptions){
+        res.json(disruptions);
     })
     .catch(function(err) {
         res.status(500).json(err);
     });
 }
 
-function post(req, res, next) {
-
-}
-
-function del(req, res, next) {
-
-}
-
-function put(req, res, next) {
-
-}
 
 DisruptionsController.prototype = {
-    get: get,
-    post: post,
-    put: put,
-    delete: del
+    get: get
 };
 
 module.exports = new DisruptionsController();

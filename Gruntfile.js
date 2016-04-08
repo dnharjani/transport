@@ -47,15 +47,6 @@ module.exports = function(grunt) {
                     captureFile: 'coverage.html'
                 },
                 src: ['test/**/*.js']
-            },
-
-
-            // currently turned off cause everything is shit
-            'travis-cov': {
-                options: {
-                    reporter: 'travis-cov'
-                },
-                src: ['test/**/*.js']
             }
         }
     });

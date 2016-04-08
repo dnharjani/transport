@@ -10,6 +10,13 @@ DisruptionService.prototype.getDisruptionById = function(disruptionId){
     return DisruptionModelService.getDisruptionById(disruptionId);
 };
 
+DisruptionService.prototype.addDisruption = function(){
+};
+
+DisruptionService.prototype.removeDisruption = function(){
+};
+
+
 
 module.exports = new DisruptionService();
 

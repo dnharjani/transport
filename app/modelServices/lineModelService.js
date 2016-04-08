@@ -1,21 +1,14 @@
 var _ = require('underscore');
 var Promise = require('promise');
 var request = require('request');
-var LineModel = require('../services/databaseService').db.line;
+var DatabaseService = require('../services/databaseService');
 
 function LineModelService() {
+    this.model = DatabaseService.models.line;
 }
 
-LineModelService.prototype.getLineById = function(lineId){
-    return LineModel.findOne({
-        where: {
-            id: lineId
-        }
-    });
-};
-
 LineModelService.prototype.getLines = function(){
-    return LineModel.findAll({raw: true});
+    return this.model.findAll({raw: true});
 };
 
 

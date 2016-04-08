@@ -1,7 +1,7 @@
-var db = require('../config/dbconfig');
+var models = require('../config/dbconfig');
 
 function DatabaseService() {
-    this.db = db;
+    this.models = models;
 }
 
 module.exports = new DatabaseService();

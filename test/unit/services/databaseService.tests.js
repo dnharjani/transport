@@ -1,9 +1,6 @@
 describe('DatabaseService tests', function () {
-
-    proxyquire.preserveCache();
-
     var DatabaseService = proxyquire('../app/services/databaseService', {
-        '../config/dbconfig': {isADatabase: true}
+        '../config/dbconfig': {theseAreModels: true}
     });
 
     beforeEach(function (done) {
@@ -16,9 +13,7 @@ describe('DatabaseService tests', function () {
 
     describe('Setting the database', function () {
         it('should should set the database to the db created in dbconfig', function () {
-            expect(DatabaseService.db.isADatabase).to.be.true;
+            expect(DatabaseService.models.theseAreModels).to.be.true;
         });
     });
-
-
 });

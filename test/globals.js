@@ -12,4 +12,4 @@ proxyquire.preserveCache();
 global.proxyquire = proxyquire;
 
 global.API_VERSION = 'v1';
-global.API_PREFIX = 'api/' + global.API_VERSION + '/';
+global.API_URL = 'http://localhost:9000/api/' + global.API_VERSION + '/';

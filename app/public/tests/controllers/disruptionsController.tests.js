@@ -71,12 +71,12 @@ describe('Disruptions Controller', function() {
     expect(ctrl).toBeDefined();
   });
 
-  it('should have disruptions', function() {
+  it('should have a disruption', function() {
     expect(scope.disruptions).toBeDefined();
+    expect(scope.disruptions.length).toEqual(1);
     expect(scope.disruptions[0].id).toEqual(1);
     expect(scope.disruptions[0].line.id).toEqual(1);
     expect(scope.disruptions[0].fromStation.id).toEqual(1);
     expect(scope.disruptions[0].toStation.id).toEqual(2);
   });
-
 });

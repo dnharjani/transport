@@ -1,7 +1,6 @@
 angular.module('transport',
   [
-    'ionic',
-    'angular-md5'
+    'ionic'
   ])
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {

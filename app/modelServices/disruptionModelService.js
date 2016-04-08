@@ -14,6 +14,5 @@ DisruptionModelService.prototype.getDisruptionById = function(disruptionId){
     });
 };
 
-
 module.exports = new DisruptionModelService();
 

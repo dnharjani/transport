@@ -10,6 +10,9 @@ function DisruptionsController() {
 function get(req, res, next) {
     DisruptionService.getDisruptionById(1).then(function(model){
         res.json(model);
+    })
+    .catch(function(err) {
+        res.status(500).json(err);
     });
 }
 

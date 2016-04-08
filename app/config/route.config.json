@@ -1,26 +1,6 @@
 {
   "routes": [
     {
-      "route": "/stations",
-      "method": "GET",
-      "secure": false,
-      "permissions": [
-        {
-        }
-      ],
-      "controller": "../controllers/stationsController"
-    },
-    {
-      "route": "/stations/:stationId",
-      "method": "GET",
-      "secure": false,
-      "permissions": [
-        {
-        }
-      ],
-      "controller": "../controllers/stationController"
-    },
-    {
       "route": "/lines",
       "method": "GET",
       "secure": false,
@@ -29,16 +9,6 @@
         }
       ],
       "controller": "../controllers/linesController"
-    },
-    {
-      "route": "/lines/:lineId",
-      "method": "GET",
-      "secure": false,
-      "permissions": [
-        {
-        }
-      ],
-      "controller": "../controllers/lineController"
     },
     {
       "route": "/disruptions",

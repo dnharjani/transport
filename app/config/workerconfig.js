@@ -5,8 +5,6 @@ var application = express();
 var bodyParser = require('body-parser');
 var routeConfig = require('./routeconfig');
 var settingsConfig = require('./settings/settingsconfig');
-var db = require('./dbconfig');
-var databaseService = require('../services/databaseService');
 
 function configureWorker(application) {
     configureApplication(application);
@@ -16,8 +14,6 @@ function configureWorker(application) {
 }
 
 function configureApplication(application) {
-    databaseService.db = db;
-
     application.use(bodyParser.json({limit: '50mb'}));
     application.use(bodyParser.urlencoded({extended: true,limit: '50mb',parameterLimit: 10000}));
 

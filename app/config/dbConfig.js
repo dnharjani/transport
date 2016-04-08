@@ -16,7 +16,9 @@ var db = new Sequelize('database', 'username', 'password', {
 });
 
 var models = [
-    'disruption'
+    'disruption',
+    'station',
+    'line'
 ];
 models.forEach(function(model) {
     module.exports[model] = db.import('../models/' + model);

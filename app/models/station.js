@@ -1,8 +1,24 @@
-function Line(id, name, stations) {
-	this.id = id;
-	this.name = name;
-	this.stations = stations;
-}
+module.exports = function(sequelize, DataTypes) {
+	var Stations = sequelize.define('Stations', {
+		id: {
+			type: DataTypes.INTEGER,
+			field: 'id',
+			unique: true,
+			autoIncrement: false,
+			primaryKey: true,
+			notNull: true
+		},
+		name: {
+			type: DataTypes.TEXT,
+			field: 'name',
+			unique: true
+		}
+	}
+	, {
+		freezeTableName: true,
+		timestamps: false,
+		tableName: 'Stations'
+	});
 
-module.exports = Line;
-
+	return Stations;
+};

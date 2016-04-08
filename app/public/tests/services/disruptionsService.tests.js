@@ -33,10 +33,10 @@ describe('Disruptions Service Unit Tests', function(){
   });
 
   it('removeDisruption should remove a disruption from the list', function() {
-    //var disruptions = {id: 1};
-    //DisruptionsService.setDisruptions(disruptions);
-    //expect(DisruptionsService.getDisruptions()).toBe(disruptions);
-    //DisruptionsService.removeDisruption(1);
-    //expect(DisruptionsService.getDisruptions()).toEqual([]);
+    var disruptions = [{id: 1}];
+    DisruptionsService.setDisruptions(disruptions);
+    expect(DisruptionsService.getDisruptions()).toBe(disruptions);
+    DisruptionsService.removeDisruption(1);
+    expect(DisruptionsService.getDisruptions()).toEqual([]);
   });
 });

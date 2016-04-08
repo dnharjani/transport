@@ -18,15 +18,15 @@ angular.module('transport')
     }
 
     function getLineById(lId) {
-      return _.findWhere(lines, {lineId: lId});
+      return _.findWhere(lines, {id: lId});
     }
 
     function getStationInLineById(lineId, stationId) {
       var line = getLineById(lineId);
-      var station = {};
+      var station;
 
       if(line && line.stations) {
-        station = _.findWhere(line.stations, {stationId: stationId});
+        station = _.findWhere(line.stations, {id: stationId});
       }
 
       return station;

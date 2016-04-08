@@ -4,10 +4,10 @@ angular.module('transport')
     var apiUrl = ApplicationConfigService.get('apiURL');
 
     return {
+      apiUrl: apiUrl,
       getDisruptions: getDisruptions,
       removeDisruption: removeDisruption,
       addDisruption: addDisruption,
-      updateDisruption: updateDisruption,
       getLines: getLines
     };
 
@@ -20,14 +20,17 @@ angular.module('transport')
     }
 
     function removeDisruption(disruptionId) {
-      return $http.delete(apiUrl + 'disruptions/'+disruptionId);
+      return $http.delete(apiUrl + 'disruption/'+disruptionId);
     }
 
-    function addDisruption(lineId, fromStationId, toStationId, fromDate, toDate) {
-      return $http.post(apiUrl + 'disruptions/');
-    }
-
-    function updateDisruption(disruptionId, toDate) {
-      return $http.put(apiUrl + 'disruptions/'+disruptionId);
+    function addDisruption(lineId, fromStationId, toStationId, fromDate, toDate, reason) {
+      return $http.post(apiUrl + 'disruption', {
+        lineId: lineId,
+        fromStationId: fromStationId,
+        toStationId: toStationId,
+        fromDate: fromDate,
+        toDate: toDate,
+        reason: reason
+      });
     }
   });

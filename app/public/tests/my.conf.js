@@ -22,6 +22,7 @@ module.exports = function(config) {
       '../www/lib/angular-sanitize/angular-sanitize.js',
       '../www/lib/angular-ui-router/release/angular-ui-router.js',
       '../www/lib/ionic/js/ionic.bundle.js',
+      '../www/lib/underscore/underscore.js',
       '../www/js/*.js',
       '../www/js/*/*.js',
       '**/*tests.js'

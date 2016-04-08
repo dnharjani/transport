@@ -4,10 +4,13 @@ angular.module('transport')
 
     function init() {
       var disruptions = DisruptionsService.getDisruptions();
-      var lines = LinesService.getLines();
-      disruptions = DisruptionsService.populateStationsFromLines(disruptions);
 
-
+      // Note: This could also be done in the backend but would result in Disruptions having duplicate data - DH
+      _.each(disruptions, function(disruption) {
+        disruption.line = LinesService.getLineById(disruption.lineId);
+        disruption.fromStation = LinesService.getStationInLineById(disruption.lineId, disruption.fromStationId);
+        disruption.toStation = LinesService.getStationInLineById(disruption.lineId, disruption.toStationId);
+      });
 
       angular.extend($scope, {
         disruptions: disruptions

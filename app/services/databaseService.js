@@ -1,13 +1,6 @@
-var db = require('../config/dbconfig');
-
-function DatabaseService() {
+function DatabaseService(db) {
     this.db = db;
 }
-
-DatabaseService.prototype.getDatabase = function(){
-    return this.db;
-};
-
 
 module.exports = new DatabaseService();
 

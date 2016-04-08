@@ -16,5 +16,18 @@ DisruptionModelService.prototype.getDisruptionById = function(disruptionId){
     });
 };
 
+DisruptionModelService.prototype.addDisruption = function(lineId, fromStationId, toStationId, fromDate, toDate, reason){
+    return Promise.resolve();
+};
+
+DisruptionModelService.prototype.updateDisruption = function(disruptionId, fromStationId, toStationId, fromDate, toDate, reason){
+    return Promise.resolve();
+};
+
+DisruptionModelService.prototype.removeDisruption = function(disruptionId){
+    return Promise.resolve();
+};
+
+
 module.exports = new DisruptionModelService();
 

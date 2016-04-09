@@ -3,10 +3,8 @@ module.exports = function(sequelize, DataTypes) {
 		id: {
 			type: DataTypes.INTEGER,
 			field: 'id',
-			unique: true,
 			autoIncrement: true,
-			primaryKey: true,
-			notNull: true
+			primaryKey: true
 		},
 		lineId: {
 			type: DataTypes.INTEGER,
@@ -19,14 +17,6 @@ module.exports = function(sequelize, DataTypes) {
 		toStationId: {
 			type: DataTypes.INTEGER,
 			field: 'toStationId'
-		},
-		fromDate: {
-			type: DataTypes.TEXT,
-			field: 'fromDate'
-		},
-		toDate: {
-			type: DataTypes.TEXT,
-			field: 'fromDate'
 		},
 		resolved: {
 			type: DataTypes.INTEGER,

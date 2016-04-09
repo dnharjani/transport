@@ -15,8 +15,7 @@ DisruptionService.prototype.getDisruptionById = function(disruptionId){
 };
 
 DisruptionService.prototype.addDisruption = function(lineId, fromStationId, toStationId, fromDate, toDate, reason){
-    fromDate = fromDate || Date.now();
-
+    fromDate = fromDate || new Date().toString();
     return DisruptionModelService.addDisruption(lineId, fromStationId, toStationId, fromDate, toDate, reason);
 };
 

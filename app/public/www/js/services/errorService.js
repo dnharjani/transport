@@ -5,10 +5,9 @@ angular.module('transport')
       showError: showError
     };
 
-    function showError(title, message) {
+    function showError(title, err) {
       $ionicPopup.alert({
-        title: title,
-        template: message
+        title: title
       });
     }
   });

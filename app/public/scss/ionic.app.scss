@@ -21,3 +21,30 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+#new-disruption-modal {
+  background-color: white;
+  margin: auto;
+  max-width: 600px;
+  width: 90%;
+  height: 400px;
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .btn-add-disruption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: 0;
+    background-color: $positive;
+    height: 60px;
+    color: white;
+
+    &:hover {
+      background-color: $calm;
+    }
+  }
+}
+

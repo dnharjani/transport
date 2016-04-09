@@ -1,5 +1,5 @@
 angular.module('transport')
-  .controller('DisruptionsController', function($scope, DisruptionsService, LinesService) {
+  .controller('DisruptionsController', function($scope, DisruptionsService, LinesService, $ionicModal) {
     init();
 
     function init() {
@@ -8,15 +8,25 @@ angular.module('transport')
       // Note: This could also be done in the backend but would result in Disruptions having duplicate data - DH
       disruptions = mergeLinesIntoDisruptions(disruptions);
 
+      $ionicModal.fromTemplateUrl('../../templates/internal/modals/new-disruption-modal.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+      }).then(function(modal) {
+        $scope.modal = modal;
+      });
+
       angular.extend($scope, {
         disruptions: disruptions,
+        lines: LinesService.getLines(),
         newDisruption: null,
 
         refreshDisruptions: refreshDisruptions,
         removeDisruption: removeDisruption,
         addDisruption: addDisruption,
         addNewDisruption: addNewDisruption,
-        clearNewDisruption: clearNewDisruption
+        clearNewDisruption: clearNewDisruption,
+        openNewDisruptionModal: openNewDisruptionModal,
+        closeNewDisruptionModal: closeNewDisruptionModal
       });
     }
 
@@ -46,10 +56,12 @@ angular.module('transport')
     }
 
     function addDisruption() {
+      closeNewDisruptionModal();
+
       DisruptionsService.addDisruption($scope.newDisruption.lineId, $scope.newDisruption.fromStationId, $scope.newDisruption.toStationId, $scope.newDisruption.fromDate, $scope.newDisruption.toDate, $scope.newDisruption.reason)
         .then(function(){
           $scope.disruptions = mergeLinesIntoDisruptions(DisruptionsService.getDisruptions());
-          $scope.newDisruption = null;
+          clearNewDisruption();
         });
     }
 
@@ -61,10 +73,24 @@ angular.module('transport')
         fromDate: null,
         toDate: null,
         reason: null
-      }
+      };
+
+      openNewDisruptionModal();
     }
 
     function clearNewDisruption() {
       $scope.newDisruption = null;
     }
+
+    function openNewDisruptionModal() {
+      $scope.modal.show();
+    }
+
+    function closeNewDisruptionModal() {
+      $scope.modal.hide();
+    }
+
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
   });

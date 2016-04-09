@@ -30,8 +30,6 @@ DisruptionModelService.prototype.addDisruption = function(lineId, fromStationId,
         lineId: lineId,
         fromStationId: fromStationId,
         toStationId: toStationId,
-        fromDate: fromDate,
-        toDate: toDate,
         resolved: 0,
         reason: reason
     });

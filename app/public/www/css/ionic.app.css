@@ -9730,3 +9730,25 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+#new-disruption-modal {
+  background-color: white;
+  margin: auto;
+  max-width: 600px;
+  width: 90%;
+  height: 400px;
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  #new-disruption-modal .btn-add-disruption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: 0;
+    background-color: #387ef5;
+    height: 60px;
+    color: white; }
+    #new-disruption-modal .btn-add-disruption:hover {
+      background-color: #11c1f3; }

@@ -1,0 +1,21 @@
+<div id="new-disruption-modal">
+  <label class = "item item-input item-select">
+    <div class = "input-label"> Line </div>
+    <select>
+      <option selected="{{newDisruption.lineId == line.id ? 'true' : 'false'}}" value="{{line.id}}" ng-repeat="line in lines">{{ line.name }}</option>
+    </select>
+  </label>
+  <label class="item item-input item-select">
+    <div class="input-label"> From Station </div>
+    <select ng-repeat="line in lines" ng-show="newDisruption.lineId == line.id">
+      <option value="{{station.id}}" ng-repeat="station in line.stations">{{ station.name }}</option>
+    </select>
+  </label>
+  <label class="item item-input item-select">
+    <div class="input-label"> To Station </div>
+    <select ng-repeat="line in lines" ng-show="newDisruption.lineId == line.id">
+      <option value="{{station.id}}" ng-repeat="station in line.stations">{{ station.name }}</option>
+    </select>
+  </label>
+  <button full class="btn-add-disruption" ng-click="addDisruption()">Add disruption</button>
+</div>

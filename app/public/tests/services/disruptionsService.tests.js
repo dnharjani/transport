@@ -26,7 +26,7 @@ describe('Disruptions Service Unit Tests', function(){
     expect(DisruptionsService.getDisruptions()).toBe(disruptions);
   });
 
-  // TODO Async Test Injection in Service
+  // TODO Async Test Injection in Services is poorly documented, mocking promises with $rootScope.apply doesn't work all that well :(
   it('addDisruption should add a disruption to the list', function() {
   });
 

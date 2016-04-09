@@ -18,8 +18,64 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+$lineColor1: yellow;
+$lineColor2: green;
+$lineColor3: dodgerblue;
+$lineColor4: darkmagenta;
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+
+#disruptions {
+  .disruption-item {
+    font-size: 20px;
+    padding: 20px;
+
+    .btn-remove-disruption-item {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+      font-size: 40px;
+      float: right;
+      cursor: pointer;
+
+      &:hover {
+        color: $assertive;
+      }
+    }
+
+    .line-emblem {
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+      text-align: center;
+      color: white;
+      border-radius: 1000px;
+      line-height: 40px;
+      font-size: 20px;
+      display: inline-block;
+
+      &.line-emblem-1 {
+        color: black;
+        background-color: $lineColor1;
+      }
+
+      &.line-emblem-2 {
+        background-color: $lineColor2;
+      }
+
+      &.line-emblem-3 {
+        background-color: $lineColor3;
+      }
+
+      &.line-emblem-4 {
+        background-color: $lineColor4;
+      }
+    }
+  }
+}
+
 
 #new-disruption-modal {
   background-color: white;
@@ -32,6 +88,35 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  .line-emblem {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    transition: opacity 0.3s linear;
+    text-align: center;
+    color: white;
+    border-radius: 1000px;
+    line-height: 100px;
+    font-size: 50px;
+
+    &.line-emblem-1 {
+      color: black;
+      background-color: $lineColor1;
+    }
+
+    &.line-emblem-2 {
+      background-color: $lineColor2;
+    }
+
+    &.line-emblem-3 {
+      background-color: $lineColor3;
+    }
+
+    &.line-emblem-4 {
+      background-color: $lineColor4;
+    }
+  }
 
   .btn-add-disruption {
     position: absolute;

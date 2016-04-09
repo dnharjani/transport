@@ -34,7 +34,7 @@ angular.module('transport')
     }
 
     function removeDisruption(disruptionId) {
-      return ApiService.removeDisruption().then(function(){
+      return ApiService.removeDisruption(disruptionId).then(function(){
         disruptions = _.reject(disruptions, function(disruption) {
           return disruption.id === disruptionId;
         });

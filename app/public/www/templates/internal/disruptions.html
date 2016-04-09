@@ -8,9 +8,11 @@
       pulling-text="Pull to refresh..."
       on-refresh="refreshDisruptions()">
     </ion-refresher>
-    <ion-list ng-repeat="disruption in disruptions" class="disruption" ng-if="disruption.line && disruption.fromStation && disruption.toStation">
+    <ion-list ng-repeat="disruption in disruptions | orderBy: disruption.id" class="disruption" ng-if="disruption.line && disruption.fromStation && disruption.toStation">
       <div class="disruption-item">
-        {{ disruption.fromStation.name}} - {{ disruption.toStation.name}}
+        <span class="line-emblem line-emblem-{{disruption.lineId}}">{{disruption.lineId}}</span>
+        From <b>{{ disruption.fromStation.name}}</b> to <b>{{ disruption.toStation.name}}</b>
+        <span class="btn-remove-disruption-item ion-android-remove-circle" ng-click="removeDisruption(disruption.id)"></span>
       </div>
     </ion-list>
   </ion-content>

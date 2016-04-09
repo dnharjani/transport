@@ -1,21 +1,24 @@
 <div id="new-disruption-modal">
+  <div class="line-emblem line-emblem-{{newDisruption.lineId}}" ng-style="{'opacity': newDisruption.lineId ? 1 : 0}">
+    {{ newDisruption.lineId}}
+  </div>
   <label class = "item item-input item-select">
     <div class = "input-label"> Line </div>
-    <select>
-      <option selected="{{newDisruption.lineId == line.id ? 'true' : 'false'}}" value="{{line.id}}" ng-repeat="line in lines">{{ line.name }}</option>
+    <select ng-model="newDisruption.lineId">
+      <option value="{{line.id}}" ng-repeat="line in lines">{{ line.name }}</option>
     </select>
   </label>
   <label class="item item-input item-select">
     <div class="input-label"> From Station </div>
-    <select ng-repeat="line in lines" ng-show="newDisruption.lineId == line.id">
+    <select ng-model="newDisruption.stationsByLine[line.id].fromStationId" ng-repeat="line in lines" ng-show="newDisruption.lineId == line.id">
       <option value="{{station.id}}" ng-repeat="station in line.stations">{{ station.name }}</option>
     </select>
   </label>
   <label class="item item-input item-select">
     <div class="input-label"> To Station </div>
-    <select ng-repeat="line in lines" ng-show="newDisruption.lineId == line.id">
+    <select ng-model="newDisruption.stationsByLine[line.id].toStationId" ng-repeat="line in lines" ng-show="newDisruption.lineId == line.id">
       <option value="{{station.id}}" ng-repeat="station in line.stations">{{ station.name }}</option>
     </select>
   </label>
-  <button full class="btn-add-disruption" ng-click="addDisruption()">Add disruption</button>
+  <button ng-show="newDisruption.lineId && newDisruption.stationsByLine[newDisruption.lineId].fromStationId && newDisruption.stationsByLine[newDisruption.lineId].toStationId" class="btn-add-disruption" ng-click="addDisruption()">Add disruption</button>
 </div>

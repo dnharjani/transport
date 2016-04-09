@@ -58,7 +58,12 @@ angular.module('transport')
     function addDisruption() {
       closeNewDisruptionModal();
 
-      DisruptionsService.addDisruption($scope.newDisruption.lineId, $scope.newDisruption.fromStationId, $scope.newDisruption.toStationId, $scope.newDisruption.fromDate, $scope.newDisruption.toDate, $scope.newDisruption.reason)
+      DisruptionsService.addDisruption( $scope.newDisruption.lineId,
+                                        $scope.newDisruption.stationsByLine[$scope.newDisruption.lineId].fromStationId,
+                                        $scope.newDisruption.stationsByLine[$scope.newDisruption.lineId].toStationId,
+                                        $scope.newDisruption.fromDate,
+                                        $scope.newDisruption.toDate,
+                                        $scope.newDisruption.reason)
         .then(function(){
           $scope.disruptions = mergeLinesIntoDisruptions(DisruptionsService.getDisruptions());
           clearNewDisruption();
@@ -67,13 +72,19 @@ angular.module('transport')
 
     function addNewDisruption() {
       $scope.newDisruption = {
-        lineId: 1,
-        fromStationId: 1,
-        toStationId: 2,
+        lineId: 0,
         fromDate: null,
         toDate: null,
-        reason: null
+        reason: null,
+        stationsByLine: {}
       };
+
+      _.each($scope.lines, function(line) {
+        $scope.newDisruption.stationsByLine[line.id] = {
+          fromStationId: 0,
+          toStationId : 0
+        }
+      });
 
       openNewDisruptionModal();
     }

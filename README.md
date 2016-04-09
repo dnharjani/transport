@@ -28,7 +28,7 @@ Frontend:
  - Karma 
  - Jasmine
 
-*Setup: *
+*Setup:*
 -----------
 
  - Install Node (LTS) - https://nodejs.org/en/ 
@@ -36,7 +36,7 @@ Frontend:
  - cd app/public npm install -g gulp-cli & npm install & bower install
 
 
-*Running tests: *
+*Running tests:*
 -------------------
 
 Backend  - grunt test in the main folder

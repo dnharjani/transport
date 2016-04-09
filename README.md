@@ -39,5 +39,5 @@ Frontend:
 **Running tests:**
 -------------------
 
-Backend  - grunt test in the main folder
-Frontend - gulp test in the app/public folder
+ - Backend  - grunt test in the main folder
+ - Frontend - gulp test in the app/public folder

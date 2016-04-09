@@ -9,7 +9,13 @@ angular.module('transport')
       disruptions = mergeLinesIntoDisruptions(disruptions);
 
       angular.extend($scope, {
-        disruptions: disruptions
+        disruptions: disruptions,
+        newDisruption: null,
+
+        addNewDisruption: addNewDisruption,
+        clearNewDisruption: clearNewDisruption,
+        addDisruption: addDisruption,
+        removeDisruption: removeDisruption
       });
     }
 
@@ -27,22 +33,37 @@ angular.module('transport')
       ApiService.removeDisruption(disruptionId)
         .then(function(){
           DisruptionsService.removeDisruption(disruptionId);
+          $scope.disruptions = mergeLinesIntoDisruptions(DisruptionsService.getDisruptions());
         })
         .catch(function(err) {
           ErrorService.showError('Error removing Disruption', err);
         });
     }
 
+    function addNewDisruption() {
+      $scope.newDisruption = {
+        lineId: 1,
+        fromStationId: 1,
+        toStationId: 2,
+        fromDate: null,
+        toDate: null,
+        reason: null
+      }
+    }
+
+    function clearNewDisruption() {
+      $scope.newDisruption = null;
+    }
+
     function addDisruption() {
-      return ApiService.addDisruption(lineId, fromStationId, toStationId, fromDate, toDate, reason)
+      return ApiService.addDisruption($scope.newDisruption.lineId, $scope.newDisruption.fromStationId, $scope.newDisruption.toStationId, $scope.newDisruption.fromDate, $scope.newDisruption.toDate, $scope.newDisruption.reason)
         .then(function(model){
           DisruptionsService.addDisruption(model);
+          $scope.disruptions = mergeLinesIntoDisruptions(DisruptionsService.getDisruptions());
+          $scope.newDisruption = null;
         })
         .catch(function(err) {
           ErrorService.showError('Error adding Disruption', err);
         });
     }
-
-
-
   });

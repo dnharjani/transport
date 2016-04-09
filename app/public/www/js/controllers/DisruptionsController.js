@@ -1,5 +1,5 @@
 angular.module('transport')
-  .controller('DisruptionsController', function($scope, DisruptionsService, LinesService, ErrorService) {
+  .controller('DisruptionsController', function($scope, DisruptionsService, LinesService) {
     init();
 
     function init() {
@@ -12,10 +12,11 @@ angular.module('transport')
         disruptions: disruptions,
         newDisruption: null,
 
-        addNewDisruption: addNewDisruption,
-        clearNewDisruption: clearNewDisruption,
+        refreshDisruptions: refreshDisruptions,
+        removeDisruption: removeDisruption,
         addDisruption: addDisruption,
-        removeDisruption: removeDisruption
+        addNewDisruption: addNewDisruption,
+        clearNewDisruption: clearNewDisruption
       });
     }
 
@@ -29,14 +30,26 @@ angular.module('transport')
       return disruptions;
     }
 
-    function removeDisruption(disruptionId) {
-      ApiService.removeDisruption(disruptionId)
+    function refreshDisruptions() {
+      DisruptionsService.refreshDisruptions()
         .then(function(){
-          DisruptionsService.removeDisruption(disruptionId);
           $scope.disruptions = mergeLinesIntoDisruptions(DisruptionsService.getDisruptions());
-        })
-        .catch(function(err) {
-          ErrorService.showError('Error removing Disruption', err);
+          $scope.$broadcast('scroll.refreshComplete');
+        });
+    }
+
+    function removeDisruption(disruptionId) {
+      DisruptionsService.removeDisruption(disruptionId)
+        .then(function(){
+          $scope.disruptions = mergeLinesIntoDisruptions(DisruptionsService.getDisruptions());
+        });
+    }
+
+    function addDisruption() {
+      DisruptionsService.addDisruption($scope.newDisruption.lineId, $scope.newDisruption.fromStationId, $scope.newDisruption.toStationId, $scope.newDisruption.fromDate, $scope.newDisruption.toDate, $scope.newDisruption.reason)
+        .then(function(){
+          $scope.disruptions = mergeLinesIntoDisruptions(DisruptionsService.getDisruptions());
+          $scope.newDisruption = null;
         });
     }
 
@@ -53,17 +66,5 @@ angular.module('transport')
 
     function clearNewDisruption() {
       $scope.newDisruption = null;
-    }
-
-    function addDisruption() {
-      return ApiService.addDisruption($scope.newDisruption.lineId, $scope.newDisruption.fromStationId, $scope.newDisruption.toStationId, $scope.newDisruption.fromDate, $scope.newDisruption.toDate, $scope.newDisruption.reason)
-        .then(function(model){
-          DisruptionsService.addDisruption(model);
-          $scope.disruptions = mergeLinesIntoDisruptions(DisruptionsService.getDisruptions());
-          $scope.newDisruption = null;
-        })
-        .catch(function(err) {
-          ErrorService.showError('Error adding Disruption', err);
-        });
     }
   });

@@ -1,5 +1,9 @@
 <ion-view id="disruptions" view-title="Disruptions">
   <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="refreshDisruptions()">
+    </ion-refresher>
     <ion-list ng-repeat="disruption in disruptions" class="disruption" ng-if="disruption.line && disruption.fromStation && disruption.toStation">
       <div class="disruption-item">
         {{ disruption.fromStation.name}} - {{ disruption.toStation.name}}

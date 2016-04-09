@@ -26,17 +26,17 @@ describe('Disruptions Service Unit Tests', function(){
     expect(DisruptionsService.getDisruptions()).toBe(disruptions);
   });
 
-  it('addDisruption should add a disruption to the list', function() {
-    expect(DisruptionsService.getDisruptions().length).toEqual(0);
-    DisruptionsService.addDisruption(1, 1, 2, 'today', 'tomorrow', 'none');
-    expect(DisruptionsService.getDisruptions().length).toEqual(1);
-  });
-
-  it('removeDisruption should remove a disruption from the list', function() {
-    var disruptions = [{id: 1}];
-    DisruptionsService.setDisruptions(disruptions);
-    expect(DisruptionsService.getDisruptions()).toBe(disruptions);
-    DisruptionsService.removeDisruption(1);
-    expect(DisruptionsService.getDisruptions()).toEqual([]);
-  });
+  //it('addDisruption should add a disruption to the list', function() {
+  //  expect(DisruptionsService.getDisruptions().length).toEqual(0);
+  //  DisruptionsService.addDisruption(1, 1, 2, 'today', 'tomorrow', 'none');
+  //  expect(DisruptionsService.getDisruptions().length).toEqual(1);
+  //});
+  //
+  //it('removeDisruption should remove a disruption from the list', function() {
+  //  var disruptions = [{id: 1}];
+  //  DisruptionsService.setDisruptions(disruptions);
+  //  expect(DisruptionsService.getDisruptions()).toBe(disruptions);
+  //  DisruptionsService.removeDisruption(1);
+  //  expect(DisruptionsService.getDisruptions()).toEqual([]);
+  //});
 });

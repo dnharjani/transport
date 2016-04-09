@@ -41,7 +41,7 @@ describe('Api Service Unit Tests', function(){
   }));
 
   it('should send a post request with addDisruption', inject(function(ApiService, ApplicationConfigService) {
-    $httpBackend.expectPOST(ApplicationConfigService.get('apiURL') + 'disruption', {
+    $httpBackend.expectPOST(ApplicationConfigService.get('apiURL') + 'disruptions', {
       lineId: 1,
       fromStationId: 1,
       toStationId: 2,
@@ -55,7 +55,7 @@ describe('Api Service Unit Tests', function(){
   }));
 
   it('should send a delete request with removeDisruption', inject(function(ApiService, ApplicationConfigService) {
-    $httpBackend.expectDELETE(ApplicationConfigService.get('apiURL') + 'disruption/1').respond({});
+    $httpBackend.expectDELETE(ApplicationConfigService.get('apiURL') + 'disruptions/1').respond({});
 
     ApiService.removeDisruption(1);
     $httpBackend.flush();

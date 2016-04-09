@@ -20,11 +20,11 @@ angular.module('transport')
     }
 
     function removeDisruption(disruptionId) {
-      return $http.delete(apiUrl + 'disruption/'+disruptionId);
+      return $http.delete(apiUrl + 'disruptions/'+disruptionId);
     }
 
     function addDisruption(lineId, fromStationId, toStationId, fromDate, toDate, reason) {
-      return $http.post(apiUrl + 'disruption', {
+      return $http.post(apiUrl + 'disruptions', {
         lineId: lineId,
         fromStationId: fromStationId,
         toStationId: toStationId,

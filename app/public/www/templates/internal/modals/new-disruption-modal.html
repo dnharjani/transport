@@ -20,5 +20,11 @@
       <option value="{{station.id}}" ng-repeat="station in line.stations">{{ station.name }}</option>
     </select>
   </label>
+  <label class = "item item-input item-select">
+    <div class = "input-label"> Reason </div>
+    <select ng-model="newDisruption.reason">
+      <option value="{{value}}" ng-repeat="(key, value) in reasons">{{ key }}</option>
+    </select>
+  </label>
   <button ng-show="newDisruption.lineId && newDisruption.stationsByLine[newDisruption.lineId].fromStationId && newDisruption.stationsByLine[newDisruption.lineId].toStationId" class="btn-add-disruption" ng-click="addDisruption()">Add disruption</button>
 </div>

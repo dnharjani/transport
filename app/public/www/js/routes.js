@@ -27,9 +27,20 @@ angular.module('transport').config(function($stateProvider, $urlRouterProvider) 
   };
 
 
+  var internalMap = {
+    url: '/map',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/internal/map.html'
+      }
+    }
+  };
+
+
   $stateProvider
     .state('internal', internalRoot)
-    .state('internal.disruptions', internalDisruptions);
+    .state('internal.disruptions', internalDisruptions)
+    .state('internal.map', internalMap);
 
   $urlRouterProvider.otherwise('/internal/disruptions');
 });

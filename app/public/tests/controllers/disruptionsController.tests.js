@@ -19,6 +19,22 @@ describe('Disruptions Controller', function() {
     })
     .factory('LinesServiceMock', function() {
       return {
+        getLines: function() {
+          return {
+            id: 1,
+            name: 'L1',
+            stations: [
+              {
+                id: 1,
+                name: 'S1'
+              },
+              {
+                id: 2,
+                name: 'S2'
+              }
+            ]
+          }
+        },
         getLineById: function(id){
           return {
             id: 1,
@@ -58,13 +74,14 @@ describe('Disruptions Controller', function() {
   beforeEach(module('transport'));
   beforeEach(module('disruptionsController.mocks'));
 
-  beforeEach(inject(function(_$controller_, _$rootScope_, _LinesServiceMock_, _DisruptionsServiceMock_) {
+  beforeEach(inject(function(_$controller_, _$rootScope_, _LinesServiceMock_, _DisruptionsServiceMock_, _$ionicModal_) {
     scope = _$rootScope_.$new();
 
     ctrl = _$controller_('DisruptionsController', {
         $scope: scope,
         DisruptionsService: _DisruptionsServiceMock_,
-        LinesService: _LinesServiceMock_
+        LinesService: _LinesServiceMock_,
+        ionicModal: _$ionicModal_
     });
   }));
 
@@ -79,5 +96,20 @@ describe('Disruptions Controller', function() {
     expect(scope.disruptions[0].line.id).toEqual(1);
     expect(scope.disruptions[0].fromStation.id).toEqual(1);
     expect(scope.disruptions[0].toStation.id).toEqual(2);
+  });
+
+  it('addNewDisruption should set newDisruption', function() {
+    expect(scope.newDisruption).toEqual(null);
+    scope.addNewDisruption();
+    expect(scope.newDisruption).toBeDefined();
+    expect(scope.newDisruption.stationsByLine).toBeDefined();
+  });
+
+  it('clearNewDisruption should set newDisruption to null', function() {
+    expect(scope.newDisruption).toEqual(null);
+    scope.newDisruption = 'hello';
+    expect(scope.newDisruption).toBeDefined();
+    scope.clearNewDisruption();
+    expect(scope.newDisruption).toEqual(null);
   });
 });

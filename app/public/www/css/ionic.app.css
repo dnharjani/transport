@@ -9734,8 +9734,9 @@ a.button {
 #disruptions .disruption-item {
   font-size: 20px;
   padding: 20px; }
+  #disruptions .disruption-item span {
+    display: inline-block; }
   #disruptions .disruption-item .btn-remove-disruption-item {
-    display: inline-block;
     width: 40px;
     height: 40px;
     margin: 5px;
@@ -9752,8 +9753,7 @@ a.button {
     color: white;
     border-radius: 1000px;
     line-height: 40px;
-    font-size: 20px;
-    display: inline-block; }
+    font-size: 20px; }
     #disruptions .disruption-item .line-emblem.line-emblem-1 {
       color: black;
       background-color: yellow; }

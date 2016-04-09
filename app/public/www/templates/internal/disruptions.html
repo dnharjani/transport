@@ -1,6 +1,6 @@
 <ion-view id="disruptions" view-title="Disruptions">
   <ion-nav-buttons side="right">
-    <button class="button button-icon button-clear ion-android-add-circle" ng-click="addNewDisruption()">
+    <button class="button button-icon button-clear ion-android-add-circle" ng-click="addNewDisruption(); openNewDisruptionModal();">
     </button>
   </ion-nav-buttons>
   <ion-content>
@@ -11,7 +11,7 @@
     <ion-list ng-repeat="disruption in disruptions | orderBy: disruption.id" class="disruption" ng-if="disruption.line && disruption.fromStation && disruption.toStation">
       <div class="disruption-item">
         <span class="line-emblem line-emblem-{{disruption.lineId}}">{{disruption.lineId}}</span>
-        From <b>{{ disruption.fromStation.name}}</b> to <b>{{ disruption.toStation.name}}</b>
+        <span>From <b>{{ disruption.fromStation.name}}</b> to <b>{{ disruption.toStation.name}}</b> - {{ disruption.reason }}</span>
         <span class="btn-remove-disruption-item ion-android-remove-circle" ng-click="removeDisruption(disruption.id)"></span>
       </div>
     </ion-list>

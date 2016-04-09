@@ -21,7 +21,7 @@
       "controller": "../controllers/disruptionsController"
     },
     {
-      "route": "/disruption/:disruptionId",
+      "route": "/disruptions/:disruptionId",
       "method": "GET",
       "secure": false,
       "permissions": [
@@ -31,7 +31,7 @@
       "controller": "../controllers/disruptionController"
     },
     {
-      "route": "/disruption",
+      "route": "/disruptions",
       "method": "POST",
       "secure": true,
       "permissions": [
@@ -41,7 +41,7 @@
       "controller": "../controllers/disruptionController"
     },
     {
-      "route": "/disruption/:disruptionId",
+      "route": "/disruptions/:disruptionId",
       "method": "DELETE",
       "secure": true,
       "permissions": [

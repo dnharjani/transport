@@ -4,7 +4,11 @@ angular.module('transport')
 
     function init() {
       var disruptions = DisruptionsService.getDisruptions();
-
+      var reasons = {
+        'PASSENGER_EMERGENCY' : 'Passenger emergency',
+        'SCHEDULED MAINTENANCE' : 'Scheduled Maintenance',
+        'OTHER' : 'Other'
+      };
       // Note: This could also be done in the backend but would result in Disruptions having duplicate data - DH
       disruptions = mergeLinesIntoDisruptions(disruptions);
 
@@ -18,6 +22,7 @@ angular.module('transport')
       angular.extend($scope, {
         disruptions: disruptions,
         lines: LinesService.getLines(),
+        reasons: reasons,
         newDisruption: null,
 
         refreshDisruptions: refreshDisruptions,
@@ -63,7 +68,7 @@ angular.module('transport')
                                         $scope.newDisruption.stationsByLine[$scope.newDisruption.lineId].toStationId,
                                         $scope.newDisruption.fromDate,
                                         $scope.newDisruption.toDate,
-                                        $scope.newDisruption.reason)
+                                        $scope.newDisruption.reason || $scope.reasons.OTHER)
         .then(function(){
           $scope.disruptions = mergeLinesIntoDisruptions(DisruptionsService.getDisruptions());
           clearNewDisruption();
@@ -85,8 +90,6 @@ angular.module('transport')
           toStationId : 0
         }
       });
-
-      openNewDisruptionModal();
     }
 
     function clearNewDisruption() {

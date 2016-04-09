@@ -1,5 +1,5 @@
 angular.module('transport')
-  .controller('DisruptionsController', function($scope, DisruptionsService, LinesService) {
+  .controller('DisruptionsController', function($scope, DisruptionsService, LinesService, ErrorService) {
     init();
 
     function init() {

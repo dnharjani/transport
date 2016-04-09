@@ -1,5 +1,5 @@
 angular.module('transport')
-  .service('DisruptionsService', function (ApiService, $q, ErrorService) {
+  .service('DisruptionsService', function (ApiService, $q) {
     var disruptions = [];
 
     return {

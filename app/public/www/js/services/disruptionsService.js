@@ -25,8 +25,8 @@ angular.module('transport')
     }
 
     function addDisruption(lineId, fromStationId, toStationId, fromDate, toDate, reason) {
-      return ApiService.addDisruption(lineId, fromStationId, toStationId, fromDate, toDate, reason).then(function(newDisruption){
-        disruptions.push(newDisruption);
+      return ApiService.addDisruption(lineId, fromStationId, toStationId, fromDate, toDate, reason).then(function(){
+        return refreshDisruptions();
       })
       .catch(function(err) {
         ErrorService.showError('Error adding Disruption', err);

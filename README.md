@@ -1,3 +1,5 @@
+Note: This is a toy project to experiment with REST API Structure and Testing, IONIC and Sequelize / SQLite
+
 **TTC**
 =======
 
@@ -35,6 +37,13 @@ Frontend:
  - npm install -g mocha & npm install -g node-inspector & npm install -g apidoc & npm install
  - cd app/public npm install -g gulp-cli & npm install & bower install
 
+**Running :**
+-------------------
+
+node server.js 
+
+The server will be running on localhost:9000
+The api is accessible at localhost:9000/api/v1/ROUTE
 
 **Running tests:**
 -------------------

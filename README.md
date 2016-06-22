@@ -11,6 +11,11 @@ The frontend allows an internal user to add and remove disruptions.
 **Tech:**
 ---------
 
+
+
+HELLLOJIDAJOIDSJAOIDJSODJOIJDSAOI
+
+
 Backend:
 
  - Node 
